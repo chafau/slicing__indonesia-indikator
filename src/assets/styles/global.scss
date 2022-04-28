@@ -1,0 +1,22 @@
+
+$primary: #545EE1 !default;
+$white: #ffffff !default;
+$accent: #545EE1 !default;
+$secondary: $gray-500 !default;
+$light: $gray-300 !default;
+$dark: $matcha !default;
+
+
+body {
+  font-family: $primary-font;
+}
+
+// html {
+//   user-select: none
+// }
+
+html {
+  min-height: 100vh,
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
