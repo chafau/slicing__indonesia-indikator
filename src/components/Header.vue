@@ -1,7 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -14,69 +13,119 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link disabled"
-              href="#"
-              tabindex="-1"
-              aria-disabled="true"
-              >Disabled</a
-            >
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <div class="dropdown">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+
+        <div class="form-group has-search">
+          <span class="material-icons form-control-feedback"> search </span>
+          <input type="text" class="form-control" placeholder="Search" />
+        </div>
+
+        <div class="dropdown notification-dropdown d-none d-lg-block mx-3">
           <a
-            class="btn btn-secondary dropdown-toggle"
-            href="#"
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
             role="button"
-            id="dropdownMenuLink"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Dropdown link
+            <img src="../assets/Images/icons/bell.svg" class="w-100" alt="" />
+            <span
+              class="
+                position-absolute
+                top-0
+                start-1
+                translate-middle
+                p-2
+                bg-danger
+                border border-light
+                rounded-circle
+              "
+            >
+              <span class="visually-hidden">New alerts</span>
+            </span>
           </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+          </ul>
+        </div>
 
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <div class="dropdown d-none d-lg-block">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="../assets/Images/profile/Bayuna Rama.png"
+              class="rounded-circle mx-2"
+              style="width: 40px"
+              alt="Avatar"
+            />
+            Bayuna Rama
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
 </template>
+
+<style lang="scss">
+nav {
+  .navbar-toggler {
+    margin-left: auto;
+  }
+
+  .dropdown {
+    margin-right: 3rem;
+
+    .nav-link {
+      color: black;
+    }
+  }
+
+  .has-search .form-control {
+    padding-left: 2.375rem;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+
+  .notification-dropdown {
+    .nav-link {
+      padding: 0;
+    }
+
+    .material-icons {
+      font-size: 35px;
+    }
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+  }
+}
+</style>

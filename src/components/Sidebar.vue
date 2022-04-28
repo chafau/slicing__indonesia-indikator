@@ -1,26 +1,37 @@
 <template>
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
     <div class="logo">
-      <img src="" alt="Vue" />
+      <img src="../assets/Images/Seeker2 1.svg" alt="Vue" />
     </div>
 
-    <h3>Menu</h3>
     <div class="menu">
       <router-link to="/" class="button">
-        <span class="material-icons">home</span>
-        <span class="text">Home</span>
+        <img
+          class="nav-icon mx-auto"
+          src="../assets/Images/icons/home.svg"
+          alt=""
+        />
       </router-link>
       <router-link to="/about" class="button">
-        <span class="material-icons">description</span>
-        <span class="text">About</span>
+        <img
+          class="nav-icon mx-auto"
+          src="../assets/Images/icons/category.svg"
+          alt=""
+        />
       </router-link>
       <router-link to="/team" class="button">
-        <span class="material-icons">group</span>
-        <span class="text">Team</span>
+        <img
+          class="nav-icon mx-auto"
+          src="../assets/Images/icons/category.svg"
+          alt=""
+        />
       </router-link>
       <router-link to="/contact" class="button">
-        <span class="material-icons">email</span>
-        <span class="text">Contact</span>
+        <img
+          class="nav-icon mx-auto"
+          src="../assets/Images/icons/category.svg"
+          alt=""
+        />
       </router-link>
     </div>
   </aside>
@@ -34,8 +45,7 @@ aside {
   display: flex;
   flex-direction: column;
 
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: white;
 
   width: calc(2rem + 32px);
   overflow: hidden;
@@ -49,50 +59,11 @@ aside {
   }
 
   .logo {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 
     img {
       width: 2rem;
     }
-  }
-
-  .menu-toggle-wrap {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-
-    position: relative;
-    top: 0;
-    transition: 0.2s ease-in-out;
-
-    .menu-toggle {
-      transition: 0.2s ease-in-out;
-      .material-icons {
-        font-size: 2rem;
-        color: var(--light);
-        transition: 0.2s ease-out;
-      }
-
-      &:hover {
-        .material-icons {
-          color: var(--primary);
-          transform: translateX(0.5rem);
-        }
-      }
-    }
-  }
-
-  h3,
-  .button .text {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  h3 {
-    color: var(--grey);
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
   }
 
   .menu {
@@ -104,11 +75,13 @@ aside {
       text-decoration: none;
 
       transition: 0.2s ease-in-out;
-      padding: 0.5rem 1rem;
+      padding: 1rem 1rem;
 
       .material-icons {
         font-size: 2rem;
-        color: var(--light);
+        background: linear-gradient(128.58deg, #0f123f 14.67%, #3a408f 86.8%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         transition: 0.2s ease-in-out;
       }
       .text {
@@ -117,21 +90,29 @@ aside {
       }
 
       &:hover {
-        background-color: var(--dark-alt);
+        background-color: #f3f4f6;
 
         .material-icons,
         .text {
-          color: var(--primary);
+          background: linear-gradient(128.58deg, #0f123f 14.67%, #3a408f 86.8%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
 
       &.router-link-exact-active {
-        background-color: var(--dark-alt);
-        border-right: 5px solid var(--primary);
+        background-color: #f3f4f6;
+        border-right: 5px solid transparent;
+        background: linear-gradient(to bottom, white, white),
+          linear-gradient(to bottom, #0F123F 14.67%, #3A408F 86.8%);
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
 
         .material-icons,
         .text {
-          color: var(--primary);
+          background: linear-gradient(128.58deg, #0f123f 14.67%, #3a408f 86.8%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
     }
@@ -144,33 +125,6 @@ aside {
     p {
       font-size: 0.875rem;
       color: var(--grey);
-    }
-  }
-
-  &.is-expanded {
-    width: var(--sidebar-width);
-
-    .menu-toggle-wrap {
-      top: -3rem;
-
-      .menu-toggle {
-        transform: rotate(-180deg);
-      }
-    }
-
-    h3,
-    .button .text {
-      opacity: 1;
-    }
-
-    .button {
-      .material-icons {
-        margin-right: 1rem;
-      }
-    }
-
-    .footer {
-      opacity: 0;
     }
   }
 
