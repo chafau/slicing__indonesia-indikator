@@ -4,17 +4,18 @@
 		<Sidebar />
 
 		<!-- Content -->
+		<Header></Header>
 		<router-view />
 	</div>
 </template>
 
 <script setup>
-import Sidebar from './components/Sidebar.vue'
-import Header from './components/Header.vue';
+import Sidebar from './components/layout/Sidebar.vue'
+import Header from './components/layout/Header.vue';
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 :root {
 	--primary: #4ade80;
@@ -35,9 +36,7 @@ button {
 	cursor: pointer;
 }
 .app {
-	display: flex;
 	main {
-		flex: 1 1 0;
 		@media (max-width: 1024px) {
 			padding-left: 4rem;
 		}

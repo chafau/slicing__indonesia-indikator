@@ -1,35 +1,35 @@
 <template>
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
     <div class="logo">
-      <img src="../assets/Images/Seeker2 1.svg" alt="Vue" />
+      <img src="../../assets/Images/Seeker2 1.svg" alt="Vue" />
     </div>
 
     <div class="menu">
       <router-link to="/" class="button">
         <img
           class="nav-icon mx-auto"
-          src="../assets/Images/icons/home.svg"
+          src="../../assets/Images/icons/home.svg"
           alt=""
         />
       </router-link>
       <router-link to="/about" class="button">
         <img
           class="nav-icon mx-auto"
-          src="../assets/Images/icons/category.svg"
+          src="../../assets/Images/icons/category.svg"
           alt=""
         />
       </router-link>
       <router-link to="/team" class="button">
         <img
           class="nav-icon mx-auto"
-          src="../assets/Images/icons/category.svg"
+          src="../../assets/Images/icons/bookmark.svg"
           alt=""
         />
       </router-link>
       <router-link to="/contact" class="button">
         <img
           class="nav-icon mx-auto"
-          src="../assets/Images/icons/category.svg"
+          src="../../assets/Images/icons/profile.svg"
           alt=""
         />
       </router-link>
@@ -42,8 +42,14 @@
 
 <style lang="scss" scoped>
 aside {
-  display: flex;
+  float: left;
   flex-direction: column;
+
+  top: 0;
+  position: sticky;
+  font-family: "Nunito", sans-serif;
+  transition: 0.4s ease-in-out;
+  z-index: 4;
 
   background-color: white;
 
@@ -62,7 +68,7 @@ aside {
     margin-bottom: 3rem;
 
     img {
-      width: 2rem;
+      width: 2.5rem;
     }
   }
 
@@ -104,7 +110,7 @@ aside {
         background-color: #f3f4f6;
         border-right: 5px solid transparent;
         background: linear-gradient(to bottom, white, white),
-          linear-gradient(to bottom, #0F123F 14.67%, #3A408F 86.8%);
+          linear-gradient(to bottom, #0f123f 14.67%, #3a408f 86.8%);
         background-clip: padding-box, border-box;
         background-origin: padding-box, border-box;
 
@@ -129,8 +135,8 @@ aside {
   }
 
   @media (max-width: 1024px) {
-    position: absolute;
-    z-index: 99;
+    position: sticky;
+    z-index: 1;
   }
 }
 </style>
