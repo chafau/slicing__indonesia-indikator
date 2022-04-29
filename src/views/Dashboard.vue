@@ -5,10 +5,8 @@
         <h3 class="jumbotron pt-4">Dashboard</h3>
         <div class="row">
           <div
-            class="col mt-4"
-            sm="12"
-            md="6"
-            v-for="item in CategoriesList"
+            class="col-md col-xs-6 mt-4"
+            v-for="item in Stats"
             :key="item.id"
           >
             <stats-card
@@ -18,13 +16,62 @@
             />
           </div>
         </div>
-        <div id="chart">
-          <apexchart
-            type="area"
-            height="350"
-            :options="chartOptions"
-            :series="series"
-          ></apexchart>
+        <div class="row mt-4 mx-1 mx-md-0">
+          <div class="col-md-7 col-xs-12 bg-white">
+            <SplineChart />
+          </div>
+          <div
+            class="
+              col-md-4
+              mt-3 mt-md-0
+              col-xs-12
+              mx-auto
+              bg-white
+              d-flex
+              align-items-center
+            "
+          >
+            <DonutChart />
+          </div>
+        </div>
+
+        <div class="row bg-white mt-4 mx-2">
+          <div class="col">
+            <div id="chart">
+              <apexchart
+                type="donut"
+                :options="donutSimpleOptions"
+                :series="donutSimpleSeries"
+              ></apexchart>
+            </div>
+          </div>
+          <div class="col">
+            <div id="chart">
+              <apexchart
+                type="donut"
+                :options="donutSimpleOptions"
+                :series="donutSimpleSeries"
+              ></apexchart>
+            </div>
+          </div>
+          <div class="col">
+            <div id="chart">
+              <apexchart
+                type="donut"
+                :options="donutSimpleOptions"
+                :series="donutSimpleSeries"
+              ></apexchart>
+            </div>
+          </div>
+          <div class="col">
+            <div id="chart">
+              <apexchart
+                type="donut"
+                :options="donutSimpleOptions"
+                :series="donutSimpleSeries"
+              ></apexchart>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -34,39 +81,21 @@
 <script>
 import StatsCard from "../components/cards/StatsCard.vue";
 import ApexCharts from "apexcharts";
+import Cards from "../components/cards/Cards.vue";
+import DonutChart from "../components/charts/DonutChart.vue";
+import SplineChart from "../components/charts/SplineChart.vue";
 
 export default {
   components: {
     StatsCard,
     ApexCharts,
+    Cards,
+    DonutChart,
+    SplineChart,
   },
   data() {
     return {
-      chartOptions: {
-        chart: {
-          type: "area",
-          height: 350,
-          stacked: true,
-          events: {
-            selection: function (chart, e) {
-              console.log(new Date(e.xaxis.min));
-            },
-          },
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-        },
-      },
-      series: [
-        {
-          name: "series-1",
-          data: [30, 40, 35, 50, 49, 60, 70, 91],
-        },
-      ],
-      CategoriesList: [
+      Stats: [
         {
           id: 1,
           title: "All Candidate",
@@ -105,6 +134,47 @@ export default {
           color: "white",
         },
       ],
+
+      //
+
+      donutSimpleSeries: [50, 50],
+      donutSimpleOptions: {
+        labels: ["Transport"],
+        chart: {
+          type: "donut",
+        },
+        colors: ["#FFFFFF", "#3A408F"],
+        legend: {
+          show: false,
+        },
+        plotOptions: {
+          pie: {
+            donut: {
+              labels: {
+                show: true,
+                total: {
+                  show: true,
+                  label: "50%",
+                  formatter: () => "Back End",
+                },
+              },
+            },
+          },
+        },
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 100,
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
+      },
     };
   },
 };

@@ -66,7 +66,7 @@
               aria-expanded="false"
             >
               <img
-                src="../../assets/Images/profile/Bayuna Rama.png"
+                src="../../assets/Images/profile/BayunaRama.png"
                 class="rounded-circle mx-2"
                 style="width: 40px"
                 alt="Avatar"
