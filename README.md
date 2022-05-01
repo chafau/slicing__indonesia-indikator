@@ -1,24 +1,11 @@
-# project-praktek
+# Slicing Test
 
-## Project setup
+### After Clone
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm install && npm run dev
 ```
 
-### Compiles and minifies for production
+### Heroku Deploy Address
 ```
-npm run build
+https://slicing.herokuapp.com/
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
