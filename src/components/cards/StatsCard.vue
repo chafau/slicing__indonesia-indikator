@@ -13,7 +13,7 @@
         <div class="desc">{{ description }}</div>
       </div>
       <div class="col-3">
-        <img src="../../assets/Images/icons/people.svg" />
+        <img src="@/assets/Images/icons/people.svg" />
       </div>
     </div>
   </div>

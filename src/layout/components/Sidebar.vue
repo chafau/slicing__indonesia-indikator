@@ -1,35 +1,35 @@
 <template>
-  <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
+  <aside>
     <div class="logo">
-      <img src="../../assets/Images/Seeker.svg" alt="Vue" />
+      <img class="w-100" src="@/assets/Images/Seeker.svg" alt="Logo" />
     </div>
 
     <div class="menu">
+      <router-link to="/dashboard" class="button">
+        <img
+          class="nav-icon mx-auto"
+          src="@/assets/Images/icons/home.svg"
+          alt=""
+        />
+      </router-link>
       <router-link to="/" class="button">
         <img
           class="nav-icon mx-auto"
-          src="../../assets/Images/icons/home.svg"
+          src="@/assets/Images/icons/category.svg"
           alt=""
         />
       </router-link>
-      <router-link to="/about" class="button">
+      <router-link to="/administrator/workspace/create" class="button">
         <img
           class="nav-icon mx-auto"
-          src="../../assets/Images/icons/category.svg"
+          src="@/assets/Images/icons/bookmark.svg"
           alt=""
         />
       </router-link>
-      <router-link to="/team" class="button">
+      <router-link to="/administrator/account/create" class="button">
         <img
           class="nav-icon mx-auto"
-          src="../../assets/Images/icons/bookmark.svg"
-          alt=""
-        />
-      </router-link>
-      <router-link to="/contact" class="button">
-        <img
-          class="nav-icon mx-auto"
-          src="../../assets/Images/icons/profile.svg"
+          src="@/assets/Images/icons/profile.svg"
           alt=""
         />
       </router-link>
@@ -66,10 +66,6 @@ aside {
 
   .logo {
     margin-bottom: 3rem;
-
-    img {
-      width: 2.5rem;
-    }
   }
 
   .menu {
