@@ -6,8 +6,11 @@
           <div class="my-auto me-auto bd-highlight">
             <h3 class="jumbotron m-0">{{ routeName }}</h3>
           </div>
-          <div class="p-2 bd-highlight align-self-center">
-            <button type="button" class="btn btn-outline-secondary">
+          <div
+            class="btn-add px-3 bd-highlight align-self-center"
+            v-if="routeName === 'Workspace'"
+          >
+            <button type="button" class="btn btn-outline-secondary py-1">
               <img
                 class="user-icon"
                 src="@/assets/Images/icons/users.svg"
@@ -16,7 +19,7 @@
               Create Workspace
             </button>
           </div>
-          <div class="p-2 bd-highlight">
+          <div class="p-0 bd-highlight align-self-center h-100">
             <div class="routes">
               <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
@@ -82,6 +85,28 @@ export default {
   .container {
     .jumbotron {
       font-weight: $font-bold;
+    }
+
+    .btn-add {
+      button {
+        border-radius: 8px;
+        border: 2px solid #0f123f;
+        background: $white;
+        color: #0F123F;
+        font-weight: 500;
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+        &:hover {
+          img {
+            filter: brightness(0) invert(1);
+          }
+          -webkit-text-fill-color: white;
+          background: linear-gradient(128.58deg, #0f123f 14.67%, #3a408f 86.8%);
+        }
+      }
     }
 
     .routes {

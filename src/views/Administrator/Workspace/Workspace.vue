@@ -1,7 +1,6 @@
 <template>
   <div>
-    <stats-card></stats-card>
-    <SplineChart />
+    
   </div>
 </template>
 

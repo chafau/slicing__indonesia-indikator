@@ -105,7 +105,7 @@ aside {
       &.router-link-exact-active {
         background-color: #f3f4f6;
         border-right: 5px solid transparent;
-        background: linear-gradient(to bottom, white, white),
+        background: linear-gradient(to bottom, #f3f4f6, #f3f4f6),
           linear-gradient(to bottom, #0f123f 14.67%, #3a408f 86.8%);
         background-clip: padding-box, border-box;
         background-origin: padding-box, border-box;
