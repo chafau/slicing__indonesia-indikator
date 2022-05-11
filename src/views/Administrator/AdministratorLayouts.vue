@@ -2,7 +2,46 @@
   <main id="Home-page">
     <div id="dashboard">
       <div class="container">
-        <h3 class="jumbotron pt-4">{{ routeName }}</h3>
+        <div class="d-flex bd-highlight mb-3 mt-4">
+          <div class="my-auto me-auto bd-highlight">
+            <h3 class="jumbotron m-0">{{ routeName }}</h3>
+          </div>
+          <div class="p-2 bd-highlight align-self-center">
+            <button type="button" class="btn btn-outline-secondary">
+              <img
+                class="user-icon"
+                src="@/assets/Images/icons/users.svg"
+                alt=""
+              />
+              Create Workspace
+            </button>
+          </div>
+          <div class="p-2 bd-highlight">
+            <div class="routes">
+              <ul class="nav nav-pills nav-justified">
+                <li class="nav-item">
+                  <router-link
+                    class="nav-link"
+                    :class="routeName === 'Account Management' ? 'active' : ''"
+                    to="/administrator/account/create"
+                    >Account</router-link
+                  >
+                </li>
+                <li class="nav-item">
+                  <router-link
+                    class="nav-link"
+                    :class="routeName === 'Workspace' ? 'active' : ''"
+                    to="/administrator/workspace/create"
+                    >Workspace</router-link
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div>
+          <router-view></router-view>
+        </div>
       </div>
     </div>
   </main>
@@ -29,7 +68,6 @@ export default {
   },
   watch: {
     $route(to, from) {
-      // this.currentRoutePath = this.$router.currentRoute.path;
       this.setRouteName();
     },
   },
@@ -44,6 +82,27 @@ export default {
   .container {
     .jumbotron {
       font-weight: $font-bold;
+    }
+
+    .routes {
+      border: 0.5px solid #e3e7ee;
+      border-radius: 8px;
+      li {
+        a {
+          color: $black;
+          border-radius: 7.4px;
+          background: $white;
+
+          &.active {
+            color: $white;
+            background: linear-gradient(
+              128.58deg,
+              #0f123f 14.67%,
+              #3a408f 86.8%
+            );
+          }
+        }
+      }
     }
   }
 }

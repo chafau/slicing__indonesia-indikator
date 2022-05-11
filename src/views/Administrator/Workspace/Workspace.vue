@@ -1,3 +1,23 @@
 <template>
-    <h1>Layout</h1>
+  <div>
+    <stats-card></stats-card>
+    <SplineChart />
+  </div>
 </template>
+
+<script>
+import SplineChart from "@/components/charts/SplineChart.vue";
+import StatsCard from "@/components/cards/StatsCard.vue";
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+    };
+  },
+  components: {
+    SplineChart,
+    StatsCard,
+  },
+};
+</script>

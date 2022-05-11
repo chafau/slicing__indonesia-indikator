@@ -15,6 +15,7 @@ export default {
   name: "SplineChart",
   data() {
     return {
+      title: "Title",
       chartSeries: [
         {
           name: "New Candidate",
@@ -35,7 +36,7 @@ export default {
       ],
       chartOptions: {
         title: {
-          text: "Candidate Overview",
+          text: this.title,
         },
         chart: {
           height: 350,

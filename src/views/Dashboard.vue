@@ -4,15 +4,46 @@
       <div class="container">
         <h3 class="jumbotron pt-4">Dashboard</h3>
         <div class="row">
-          <div
-            class="col-md col-xs-6 mt-4"
-            v-for="item in Stats"
-            :key="item.id"
-          >
+          <div class="col-md col-xs-6 mt-4">
             <stats-card
-              :title="item.title"
-              :description="item.description"
-              :colors="item.color"
+              title="All Candidate"
+              :description="datas"
+              colors="white"
+            />
+          </div>
+          <div class="col-md col-xs-6 mt-4">
+            <stats-card
+              title="New Candidate"
+              :description="datas"
+              colors="white"
+            />
+          </div>
+          <div class="col-md col-xs-6 mt-4">
+            <stats-card
+              title="On Progress"
+              :description="datas"
+              colors="white"
+            />
+          </div>
+          <div class="col-md col-xs-6 mt-4">
+            <stats-card
+              title="Pending"
+              :description="datas"
+              colors="white"
+            />
+          </div>
+          <div class="col-md col-xs-6 mt-4">
+            <stats-card
+              title="Not Met"
+              :description="datas"
+              colors="white"
+            />
+          </div>
+          <div class="col-md col-xs-6 mt-4">
+            <stats-card
+              title="Completed"
+              :description="datas"
+              colors="white"
             />
           </div>
         </div>
@@ -84,6 +115,7 @@ import ApexCharts from "apexcharts";
 import Cards from "../components/cards/Cards.vue";
 import DonutChart from "../components/charts/DonutChart.vue";
 import SplineChart from "../components/charts/SplineChart.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -95,45 +127,7 @@ export default {
   },
   data() {
     return {
-      Stats: [
-        {
-          id: 1,
-          title: "All Candidate",
-          description: "120",
-          color: "white",
-        },
-
-        {
-          id: 2,
-          title: "New Candidate",
-          description: "40",
-          color: "white",
-        },
-        {
-          id: 3,
-          title: "On Progress",
-          description: "25",
-          color: "white",
-        },
-        {
-          id: 4,
-          title: "Pending",
-          description: "47",
-          color: "white",
-        },
-        {
-          id: 5,
-          title: "Not Met",
-          description: "15",
-          color: "white",
-        },
-        {
-          id: 6,
-          title: "Completed",
-          description: "92",
-          color: "white",
-        },
-      ],
+      datas: null,
 
       //
 
@@ -176,6 +170,21 @@ export default {
         ],
       },
     };
+  },
+
+  methods: {
+    setData(data) {
+      this.datas = data.length;
+      console.log(this.datas);
+    },
+  },
+  mounted() {
+    axios
+      .get("https://reqres.in/api/users")
+      .then((resp) => {
+        this.setData(resp.data.data);
+      })
+      .catch((error) => console.log(error));
   },
 };
 </script>

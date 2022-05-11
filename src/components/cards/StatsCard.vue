@@ -18,18 +18,27 @@
     </div>
   </div>
 </template>
+
 <script>
+import axios from 'axios';
+
 export default {
   name: "stats-card",
   components: {},
+  data() {
+    return {
+      datas: []
+    }
+  },
   props: {
     image: String,
     title: String,
-    description: String,
+    description: Number,
     colors: String,
   },
 };
 </script>
+
 <style lang="scss">
 .categories-card {
   color: $black;
@@ -63,10 +72,10 @@ export default {
 }
 
 .upper {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 img {
-    width: 30px;
+  width: 30px;
 }
 </style>
